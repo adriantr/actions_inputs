@@ -6,6 +6,9 @@ on:
       bucketname:
         required: true
         type: string
+      labels:
+        required: true
+        type: string
 
 jobs:
   test:
@@ -29,3 +32,4 @@ jobs:
       run: terraform plan
       env:
         TF_VAR_bucketname: ${{ inputs.bucketname }}
+        TF_VAR_labels: ${{ inputs.labels }}

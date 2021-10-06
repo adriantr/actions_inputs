@@ -4,3 +4,7 @@ resource "google_storage_bucket" "main" {
   name = "${var.bucketname}-7798"
   location = "europe-north1"
 }
+
+output "labels" {
+  value = var.labels
+}
