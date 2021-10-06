@@ -1,0 +1,26 @@
+name: 'Test inputs'
+
+on:
+  workflow_call:
+    inputs:
+      credentials:
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_wrapper: false
+
+    - name: Verify terraform
+      run: terraform init
+      env:
+        GOOGLE_CREDENTIALS: ${{ inputs.credentials }}
