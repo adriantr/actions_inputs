@@ -33,5 +33,5 @@ jobs:
     - name: Verify terraform
       run: terraform plan
       env:
-        TF_VAR_bucketname: ${{ inputs.bucketname }}
-        TF_VAR_labels: ${{ inputs.labels }}
+        TF_VAR_bucketname: ${{ github.event.inputs.bucketname }}
+        TF_VAR_labels: ${{ github.event.inputs.labels }}
