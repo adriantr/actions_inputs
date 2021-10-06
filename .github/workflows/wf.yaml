@@ -3,13 +3,15 @@ name: 'Test inputs'
 on:
   workflow_dispatch:
     inputs:
-      credentials:
+      bucketname:
         required: true
         type: string
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_CREDENTIALS: ${{ secrets.GCP }}
 
     steps:
     - name: Checkout
@@ -22,10 +24,8 @@ jobs:
 
     - name: Verify terraform
       run: terraform init
-      env:
-        GOOGLE_CREDENTIALS: ${{ inputs.credentials }}
     
     - name: Verify terraform
       run: terraform plan
       env:
-        GOOGLE_CREDENTIALS: ${{ inputs.credentials }}
+        TF_VAR_bucketname: ${{ inputs.bucketname }}
