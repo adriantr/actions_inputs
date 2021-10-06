@@ -24,3 +24,8 @@ jobs:
       run: terraform init
       env:
         GOOGLE_CREDENTIALS: ${{ inputs.credentials }}
+    
+    - name: Verify terraform
+      run: terraform plan
+      env:
+        GOOGLE_CREDENTIALS: ${{ inputs.credentials }}
