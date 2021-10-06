@@ -6,9 +6,11 @@ on:
       bucketname:
         required: true
         type: string
+        description: "name of the bucket"
       labels:
         required: true
         type: string
+        description: "labels"
 
 jobs:
   test:
