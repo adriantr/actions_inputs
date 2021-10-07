@@ -3,5 +3,10 @@ variable "bucketname" {
 }
 
 variable "labels" {
-  type = map(any)
+  type = object({
+    requestedBy = string
+    users = list(string)
+    env = string
+    budgetValue = number
+  })
 }
