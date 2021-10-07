@@ -3,5 +3,5 @@ variable "bucketname" {
 }
 
 variable "labels" {
-    type = string
+    type = map(string)
 }

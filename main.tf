@@ -6,5 +6,5 @@ resource "google_storage_bucket" "main" {
 }
 
 output "labels" {
-  value = jsondecode(var.labels)
+  value = var.labels
 }
